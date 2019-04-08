@@ -26,6 +26,12 @@ module Web
             self.status = 422
           end
         end
+
+        private
+
+        def valid?(params)
+          params.valid?
+        end
       end
     end
   end
