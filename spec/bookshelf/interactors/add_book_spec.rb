@@ -23,5 +23,14 @@ RSpec.describe AddBook do
         AddBook.new(repository: repository).call(attributes)
       end
     end
+
+    context "sending email" do
+      let(:mailer) { instance_double("Mailers::BookAddedNotification") }
+
+      it "send :deliver to the mailer" do
+        expect(mailer).to receive(:deliver)
+        AddBook.new(mailer: mailer).call(attributes)
+      end
+    end
   end
 end
