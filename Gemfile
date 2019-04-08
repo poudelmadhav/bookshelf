@@ -26,3 +26,4 @@ group :production do
   # gem 'puma'
 end
 ruby '2.4.3'
+gem "puma"
